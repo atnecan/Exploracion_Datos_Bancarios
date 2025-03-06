@@ -2,6 +2,16 @@
 
 Este proyecto forma parte del tema *Python for Data* y tiene como objetivo realizar un análisis exploratorio de datos de campañas de marketing bancarias.
 
+## Descripción del Proyecto
+
+Este proyecto forma parte del curso *Python for Data* y tiene como objetivo realizar un análisis exploratorio de datos (EDA) sobre campañas de marketing de un banco portugués. 
+
+El análisis incluirá:
+- Transformación y limpieza de datos.
+- Análisis estadístico descriptivo.
+- Visualización de datos con gráficos.
+- Creación de un informe final con conclusiones.
+
 ## 📂 Estructura del Proyecto
 
 El proyecto está organizado en las siguientes carpetas y archivos:
@@ -17,14 +27,3 @@ El proyecto está organizado en las siguientes carpetas y archivos:
 - 📜 **Python_para_datos.ipynb** → Notebook con el análisis completo en Jupyter.
 - 📜 **README.md** → Explicación del proyecto, estructura y pasos a seguir.
 - 📜 **requirements.txt** → Lista de librerías necesarias para ejecutar el proyecto.
-
-## Descripción del Proyecto
-
-Este proyecto forma parte del curso *Python for Data* y tiene como objetivo realizar un análisis exploratorio de datos (EDA) sobre campañas de marketing de un banco portugués. 
-
-El análisis incluirá:
-- Transformación y limpieza de datos.
-- Análisis estadístico descriptivo.
-- Visualización de datos con gráficos.
-- Creación de un informe final con conclusiones.
-
