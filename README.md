@@ -1,10 +1,8 @@
 # DatosProyecto - Análisis Exploratorio de Datos (EDA)
 
-Este proyecto forma parte del tema *Python for Data* y tiene como objetivo realizar un análisis exploratorio de datos de campañas de marketing bancarias.
-
 ## Descripción del Proyecto
 
-Este proyecto forma parte del curso *Python for Data* y tiene como objetivo realizar un análisis exploratorio de datos (EDA) sobre campañas de marketing de un banco portugués. 
+Este proyecto forma parte del tema *Python for Data* y tiene como objetivo realizar un análisis exploratorio de datos (EDA) sobre campañas de marketing de un banco portugués. 
 
 El análisis incluirá:
 - Transformación y limpieza de datos.
