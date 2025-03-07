@@ -1,7 +1,7 @@
 # Análisis Exploratorio de Datos (EDA) con Python
 
 ## Descripción del Proyecto
-Este proyecto tiene como objetivo realizar un análisis exploratorio de los datos relacionados con campañas de marketing directo de una institución bancaria portuguesa. Las campañas de marketing se basaron en llamadas telefónicas, y a menudo se requerió más de un contacto con el mismo cliente para determinar si el producto (depósito a plazo bancario) sería suscrito o no.
+Este proyecto tiene como objetivo realizar un análisis exploratorio de los datos relacionados con campañas de marketing directo de una institución bancaria portuguesa. Las campañas de marketing se basaron en llamadas telefónicas, y a menudo se requirió más de un contacto con el mismo cliente para determinar si el producto (depósito a plazo bancario) sería suscrito o no.
 
 ## Objetivo
 El objetivo del proyecto es aplicar técnicas de transformación y limpieza de datos, realizar un análisis descriptivo, visualizar los datos y elaborar un informe explicativo del análisis realizado.
@@ -77,6 +77,19 @@ Se elabora un informe que incluye:
 1. Abre el archivo del script en Visual Studio Code.
 2. Ejecuta cada celda de código paso a paso en un entorno Jupyter Notebook o terminal.
 3. Analiza los resultados obtenidos y visualiza los gráficos generados.
+
+### 6. Estructura del Repositorio
+El repositorio está organizado en las siguientes carpetas:
+```
+/
+|-- data/                # Archivos de datos originales (CSV, XLSX)
+|-- backup/              # Copias de seguridad de los datos
+|-- notebooks/           # Notebooks de Jupyter con el análisis
+|-- scripts/             # Scripts en Python para procesamiento y análisis
+|-- visualizations/      # Gráficos generados durante el análisis
+|-- README.md            # Documentación del proyecto
+|-- requirements.txt     # Lista de librerías necesarias
+```
 
 ## Contribuciones
 Si deseas contribuir a mejorar este análisis, puedes realizar un fork del repositorio y enviar tus propuestas a través de un pull request en GitHub.
