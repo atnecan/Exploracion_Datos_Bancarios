@@ -1,10 +1,10 @@
 # Análisis Exploratorio de Datos (EDA) con Python
 
 ## Descripción del Proyecto
-Este proyecto tiene como objetivo realizar un **Análisis Exploratorio de Datos (EDA)** sobre campañas de marketing de una institución bancaria portuguesa. Las campañas se basaron en llamadas telefónicas y, en muchos casos, se requirieron múltiples contactos para determinar si el cliente suscribiría un depósito a plazo bancario.
+Este proyecto tiene como objetivo realizar un análisis exploratorio de los datos relacionados con campañas de marketing directo de una institución bancaria portuguesa. Las campañas de marketing se basaron en llamadas telefónicas, y a menudo se requerió más de un contacto con el mismo cliente para determinar si el producto (depósito a plazo bancario) sería suscrito o no.
 
 ## Objetivo
-Aplicar técnicas de **transformación y limpieza de datos**, realizar un **análisis descriptivo**, visualizar los datos y elaborar un **informe explicativo** con hallazgos clave.
+El objetivo del proyecto es aplicar técnicas de transformación y limpieza de datos, realizar un análisis descriptivo, visualizar los datos y elaborar un informe explicativo del análisis realizado.
 
 ## Herramientas Utilizadas
 - Python
@@ -12,7 +12,7 @@ Aplicar técnicas de **transformación y limpieza de datos**, realizar un **aná
 - Matplotlib
 - Seaborn
 - Visual Studio Code
-- Jupyter Notebook
+- GitHub para el versionado del código
 
 ## Requisitos del Proyecto
 - Transformación y limpieza de los datos.
@@ -20,133 +20,68 @@ Aplicar técnicas de **transformación y limpieza de datos**, realizar un **aná
 - Visualización de los datos.
 - Informe explicativo del análisis.
 
----
+## Estructura del Proyecto
+El proyecto está organizado en los siguientes apartados:
 
-## **1. Carga y Exploración de Datos**
+### 1. Carga de los Datos y Preparación
+1.1 **Carga de Datos**
+   - Se cargan los datos desde archivos CSV y Excel.
+   - Se corrigen posibles errores en los nombres de las columnas.
+   - Se crean copias de seguridad antes de modificar los datos.
 
-### **1.1 Carga de los Datos**
-Los datos provienen de:
-- **`bank-additional.csv`**: Información sobre clientes y campañas de marketing.
-- **`customer-details.xlsx`**: Datos demográficos de clientes en distintas hojas.
+1.2 **Unificación de Datos**
+   - Se combinan los datos de clientes de diferentes años en un único DataFrame.
+   - Se asegura que la clave de unión ('id_') esté correctamente definida antes de fusionar.
 
-```python
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
+### 2. Transformación y Limpieza
+2.1 **Identificación y Manejo de Valores Nulos**
+   - Se identifican y rellenan valores nulos en columnas numéricas con la media.
+   - Se convierten las columnas de fechas en formato datetime.
 
-# Cargar datos de marketing
-bank_df = pd.read_csv("data/bank-additional.csv", sep=";")
+2.2 **Conversión de Tipos de Datos**
+   - Se convierten variables categóricas para mejorar la eficiencia del análisis.
+   - Se eliminan duplicados si los hay.
 
-# Cargar datos de clientes (diferentes hojas del Excel)
-customer_2012 = pd.read_excel("data/customer-details.xlsx", sheet_name='2012')
-customer_2013 = pd.read_excel("data/customer-details.xlsx", sheet_name='2013')
-customer_2014 = pd.read_excel("data/customer-details.xlsx", sheet_name='2014')
-```
+### 3. Análisis Descriptivo y Visualización
+3.1 **Estadísticas Descriptivas**
+   - Se calculan medias, medianas, desviaciones y distribuciones de las variables más relevantes.
+   
+3.2 **Análisis de Relaciones**
+   - Se examinan correlaciones entre variables.
+   - Se visualizan patrones con histogramas y boxplots.
 
-### **1.2 Unificación de Datos**
-Antes de fusionar los datos:
-- Se renombran las columnas de ID en `customer-details.xlsx`.
-- Se combinan los datos de clientes en un solo DataFrame.
+3.3 **Visualizaciones Clave**
+   - **Distribución de Edad de los Clientes**
+   - **Duración de las Llamadas y su Influencia en la Suscripción**
+   - **Relación entre Nivel Educativo y Probabilidad de Suscripción**
+   - **Método de Contacto y Éxito de la Campaña**
+   - **Ingresos y su Relación con la Suscripción**
+   - **Influencia de la Tasa de Empleo y el Índice de Precios en la Decisión de los Clientes**
 
-```python
-# Renombrar la columna ID para que coincida en ambas tablas
-customer_2012.rename(columns={'ID': 'id_'}, inplace=True)
-customer_2013.rename(columns={'ID': 'id_'}, inplace=True)
-customer_2014.rename(columns={'ID': 'id_'}, inplace=True)
+### 4. Informe Explicativo del Análisis
+Se elabora un informe que incluye:
+- Introducción y contexto del problema.
+- Transformaciones y limpieza realizadas.
+- Visualizaciones clave y hallazgos.
+- Conclusiones y recomendaciones basadas en los datos analizados.
 
-# Concatenar datos de clientes en un solo DataFrame
-customer_df = pd.concat([customer_2012, customer_2013, customer_2014], ignore_index=True)
+### 5. Instrucciones para Ejecutar el Proyecto
+#### 5.1 Requisitos Previos
+- Tener instalado Python y las librerías necesarias (`pandas`, `matplotlib`, `seaborn`).
+- Clonar el repositorio desde GitHub:
+  ```bash
+  git clone <URL_DEL_REPOSITORIO>
+  ```
 
-# Fusionar con los datos de marketing usando la clave id_
-merged_df = pd.merge(bank_df, customer_df, on='id_', how='left')
-```
+#### 5.2 Ejecución
+1. Abre el archivo del script en Visual Studio Code.
+2. Ejecuta cada celda de código paso a paso en un entorno Jupyter Notebook o terminal.
+3. Analiza los resultados obtenidos y visualiza los gráficos generados.
 
----
-
-## **2. Transformación y Limpieza de Datos**
-
-### **2.1 Identificación y Manejo de Valores Nulos**
-```python
-# Identificar valores nulos
-print(merged_df.isnull().sum())
-
-# Rellenar valores nulos en variables numéricas con la media
-num_cols = merged_df.select_dtypes(include=['number']).columns
-merged_df[num_cols] = merged_df[num_cols].fillna(merged_df[num_cols].mean())
-```
-
-### **2.2 Conversión de Tipos de Datos**
-```python
-# Convertir fechas a datetime
-merged_df['date'] = pd.to_datetime(merged_df['date'], format='%d-%b-%Y', errors='coerce')
-merged_df['Dt_Customer'] = pd.to_datetime(merged_df['Dt_Customer'], errors='coerce')
-
-# Convertir variables categóricas
-cat_cols = ['job', 'marital', 'education', 'default', 'housing', 'loan', 'contact', 'poutcome', 'y']
-merged_df[cat_cols] = merged_df[cat_cols].astype('category')
-```
-
-### **2.3 Eliminación de Duplicados**
-```python
-# Eliminar duplicados
-merged_df.drop_duplicates(inplace=True)
-```
-
-### **2.4 Creación de Nueva Variable**
-```python
-# Nueva columna: Total de hijos en el hogar
-merged_df['Total_Children'] = merged_df['Kidhome'] + merged_df['Teenhome']
-```
+## Contribuciones
+Si deseas contribuir a mejorar este análisis, puedes realizar un fork del repositorio y enviar tus propuestas a través de un pull request en GitHub.
 
 ---
 
-## **3. Análisis Descriptivo y Visualización**
-
-### **3.1 Estadísticas Descriptivas**
-```python
-print(merged_df.describe())
-```
-
-### **3.2 Análisis de Correlación**
-```python
-# Calcular matriz de correlación y visualizarla
-plt.figure(figsize=(12, 8))
-sns.heatmap(merged_df.corr(), annot=True, cmap='coolwarm')
-plt.title('Matriz de Correlación')
-plt.show()
-```
-
-### **3.3 Distribución de la Duración de Llamadas**
-```python
-plt.figure(figsize=(10,5))
-sns.histplot(merged_df['duration'], bins=50, kde=True)
-plt.title('Distribución de la Duración de las Llamadas')
-plt.xlabel('Duración (segundos)')
-plt.ylabel('Frecuencia')
-plt.show()
-```
-
----
-
-## **4. Informe Explicativo del Análisis**
-
-- **Introducción**: Propósito del análisis y estructura de los datos.
-- **Transformación y Limpieza**: Acciones realizadas para mejorar la calidad de los datos.
-- **Análisis Descriptivo**: Estadísticas y patrones clave.
-- **Visualización**: Representaciones gráficas de los hallazgos.
-- **Conclusiones**: Insights obtenidos y posibles recomendaciones.
-
----
-
-## **5. Organización del Proyecto**
-
-```
-📂 DatosProyecto/
-│── 📁 data/ (Archivos CSV y Excel originales)
-│── 📁 scripts/ (Código Python del EDA)
-│── 📜 Python_for_data.ipynb (Notebook con el análisis)
-│── 📜 README.md (Este documento explicativo)
-```
-
-Este README servirá como guía de referencia para cualquier persona que quiera entender y replicar el análisis. 🚀
+📌 **Este README será actualizado conforme se agreguen mejoras al análisis.**
 
