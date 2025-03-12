@@ -1,4 +1,3 @@
-```markdown
 # Proyecto de Análisis Exploratorio de Datos (EDA) con Python
 
 Este proyecto tiene como objetivo analizar datos de campañas de marketing directo de una institución bancaria portuguesa. Se aplican técnicas de **transformación y limpieza de datos**, **análisis descriptivo**, **visualización** y se elabora un **informe explicativo**, todo ello utilizando Python.
@@ -51,22 +50,20 @@ Ambos datasets se relacionan mediante un identificador único (`id_` o `ID`).
 
 ## 5. Estructura del Repositorio
 
-```
-├── data/
-│   ├── bank-additional.csv
-│   ├── customer-details.xlsx
-│   └── ...
-├── notebooks/
-│   └── eda_analysis.ipynb  # Notebook principal de análisis
-├── scripts/
-│   └── ...                 # Scripts en Python (puede estar vacío o contener archivos auxiliares)
-├── visualizations/
-│   └── ...                 # Gráficos generados
-├── backup/                 # (Opcional) Copias de seguridad de datos
-├── requirements.txt        # (Opcional) Lista de librerías necesarias
-└── README.md               # Documentación principal
-```
 
+    ├── backup/
+    ├── data/
+    ├── notebooks/
+    ├── visualizations/
+    ├── DataProject_Proyecto EDA con Python.docx
+    └── README.md
+
+- **backup/**: Carpeta opcional para copias de seguridad de los datos.  
+- **data/**: Carpeta donde se almacenan los archivos de datos originales (CSV, Excel, etc.).  
+- **notebooks/**: Carpeta que contiene los notebooks de Jupyter con el análisis paso a paso.  
+- **visualizations/**: Carpeta para guardar las gráficas o visualizaciones generadas durante el análisis.  
+- **DataProject_Proyecto EDA con Python.docx**: Documento con detalles y requerimientos del proyecto.  
+- **README.md**: Archivo de documentación principal (este archivo).
 
 ---
 
@@ -74,7 +71,7 @@ Ambos datasets se relacionan mediante un identificador único (`id_` o `ID`).
 
 1. **Clona este repositorio**:
 ```bash
-git clone https://github.com/atnecan/KATAS-DE-PYTHON.git
+git clone https://github.com/atnecan/DatosProyecto.git
 cd KATAS-DE-PYTHON
 ```
 
